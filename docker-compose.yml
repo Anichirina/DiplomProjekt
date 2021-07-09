@@ -9,6 +9,7 @@ services:
     volumes:
       - ./gate-simulator/:/home/node/app
     command: "npm start"
+
   mysql:
     image: mysql:8.0
     restart: always
@@ -16,7 +17,7 @@ services:
       - '3306:3306'
     volumes:
       -  /var/lib/mysql
-      - ./init_bd:/docker-entrypoint-initdb.d
+      - ./init_bd:/ /var/lib/mysql/data
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -30,6 +31,7 @@ services:
     volumes:
       - ./data_postgres:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=app
+      - POSTGRES_USER=user
       - POSTGRES_PASSWORD=pass
-      - POSTGRES_DB=app
+      - POSTGRES_DB=postgres
+
