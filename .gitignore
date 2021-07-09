@@ -35,7 +35,7 @@ out/
 *.zip
 *.tar.gz
 *.rar
-/src/
+
 /src/test/java/ru/netology/mode/
 /src/test/java/ru/netology/mode/
 
