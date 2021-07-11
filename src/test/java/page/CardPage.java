@@ -1,14 +1,14 @@
 package page;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 import lombok.val;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -22,12 +22,13 @@ public class CardPage {
     private final SelenideElement nameHolderCard = fieldCardOwner.$(".input__control");
     private final SelenideElement codeCVC = $("input[placeholder='999']");
     private final SelenideElement buttonContinue = $$("button").find(exactText("Продолжить"));
+    private final ElementsCollection resultLinks = $$(".input__top");
     private final SelenideElement improperFormat = $(byText("Неверный формат"));
     private final SelenideElement emptyField = $(byText("Поле обязательно для заполнения"));
     private final SelenideElement invalidExpiredDate = $(byText("Неверно указан срок действия карты"));
     private final SelenideElement expiredDatePass = $(byText("Истёк срок действия карты"));
-    private final SelenideElement  approvedNotification = $(byText("Операция одобрена Банком."));
-    private final SelenideElement declinedNotification = $(byText("Ошибка! Банк отказал в проведении операции."));
+    private final SelenideElement approvedNotification = $(".notification_status_ok");
+    private final SelenideElement declinedNotification = $(".notification_status_error");
 
 
     public void fillCardInformationForSelectedWay(DataHelper.CardInfo cardInformation) {
@@ -64,5 +65,32 @@ public class CardPage {
     public void declined() {
         declinedNotification.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
+
+    public void shouldValueFieldNumberCard() {
+        val fieldNumberCard = resultLinks.find(text("Номер карты")).parent();
+        fieldNumberCard.shouldHave(text("Неверный формат"));
+    }
+
+    public void shouldValueFieldMonth() {
+        val fieldNumberCard = resultLinks.find(text("Месяц")).parent();
+        fieldNumberCard.shouldHave(text("Неверный формат"));
+
+    }
+
+    public void shouldValueFieldYear() {
+        val fieldNumberCard = resultLinks.find(text("Год")).parent();
+        fieldNumberCard.shouldHave(text("Неверный формат"));
+    }
+
+    public void shouldValueFieldCodCVC() {
+        val fieldNumberCard = resultLinks.find(text("CVC/CVV")).parent();
+        fieldNumberCard.shouldHave(text("Неверный формат"));
+    }
+
+    public void shouldValueFieldHolder() {
+        val fieldNumberCard = resultLinks.find(text("Владелец")).parent();
+        fieldNumberCard.shouldHave(text("Поле обязательно для заполнения"));
+    }
+
 
 }

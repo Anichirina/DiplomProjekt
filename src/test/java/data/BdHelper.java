@@ -3,32 +3,22 @@ package data;
 import lombok.SneakyThrows;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
-
-import static java.sql.DriverManager.getConnection;
-
 
 public class BdHelper {
     private static final QueryRunner runner = new QueryRunner();
-
     private final Connection conn = getConnect();
-
-
-
-
 
     @SneakyThrows
     private Connection getConnect() {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "user", "pass");
-
+        return DriverManager.getConnection(
+                System.getProperty("spring.datasource.url"),
+                System.getProperty("spring.datasource.username"),
+                System.getProperty("spring.datasource.password")
+        );
     }
 
     @SneakyThrows

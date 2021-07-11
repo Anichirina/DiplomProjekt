@@ -17,7 +17,6 @@ services:
       - '3306:3306'
     volumes:
       -  /var/lib/mysql
-      - ./init_bd:/ /var/lib/mysql/data
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -25,7 +24,8 @@ services:
       - MYSQL_PASSWORD=pass
 
   postgres_service:
-    image: postgres:12-alpine
+    image: postgres:12.7-alpine
+    restart: always
     ports:
       - '5432:5432'
     volumes:

@@ -16,8 +16,7 @@ public class DataHelper {
     static String yearEndOfAction = LocalDate.now().plusYears(2).format(formatYear);
     static String nameHolder = faker.name().fullName();
     static String codeCvc = Integer.toString(faker.number().numberBetween(100, 999));
-    static String validNumberCard = "4444 4444 4444 4441";
-    static String invalidNumberCard = "4444 4444 4444 4442";
+
 
     private DataHelper() {
     }
@@ -42,8 +41,8 @@ public class DataHelper {
                 codeCvc);
     }
 
-    public static CardInfo getInvalidCardNumberIfLess16Sym() {
-        return new CardInfo("4444 4444 4444 44", monthEndOfAction, yearEndOfAction, nameHolder,
+    public static CardInfo getInvalidCardNumberInccorectNumber() {
+        return new CardInfo("4444", monthEndOfAction, yearEndOfAction, nameHolder,
                 codeCvc);
     }
 
@@ -96,7 +95,6 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441",  monthEndOfAction, "13",
                 nameHolder, codeCvc);
     }
-
     public static CardInfo getInvalidCardOwnerNameIfEmpty() {
         return new CardInfo("4444 4444 4444 4441",  monthEndOfAction, yearEndOfAction,
                 "", codeCvc);
