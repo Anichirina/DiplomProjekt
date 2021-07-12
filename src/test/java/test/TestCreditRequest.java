@@ -151,7 +151,7 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardNumber);
-            creditPage.declined();
+            creditPage.approved();
         }
     }
 
@@ -215,7 +215,7 @@ public class TestCreditRequest {
     class shouldInvalidCardFieldOwner {
         @Test
         public void shouldInvalidCardOwnerNameIfEmpty() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCardOwnerNameIfEmpty();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -225,7 +225,7 @@ public class TestCreditRequest {
 
         @Test
         public void shouldInvalidCardOwnerNameIfNumericAndSpecialCharacters() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCardOwnerNameIfNumericAndSpecialCharacters();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -238,7 +238,7 @@ public class TestCreditRequest {
 
         @Test
         public void shouldInvalidCardOwnerNameIfRussianLetters() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCardOwnerNameIfRussianLetters();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -255,7 +255,7 @@ public class TestCreditRequest {
     class shouldInvalidCardFieldCodeCVC {
         @Test
         public void shouldInvalidCvcIfEmpty() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCvcIfEmpty();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -265,7 +265,7 @@ public class TestCreditRequest {
 
         @Test
         public void shouldInvalidCvcIfOneDigit() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCvcIfOneDigit();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -275,7 +275,7 @@ public class TestCreditRequest {
 
         @Test
         public void shouldInvalidCvcIfTwoDigits() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCvcIfTwoDigits();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
@@ -285,7 +285,7 @@ public class TestCreditRequest {
 
         @Test
         public void shouldInvalidCvvIfThreeZero() {
-            val invalidCardNumber = DataHelper.getInvalidYearIfBeforeCurrentYear();
+            val invalidCardNumber = DataHelper.getInvalidCvvIfThreeZero();
             val paymentPage = new TripPage();
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();

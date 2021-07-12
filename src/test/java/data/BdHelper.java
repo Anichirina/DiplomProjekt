@@ -12,12 +12,14 @@ import java.util.Properties;
 
 public class BdHelper {
     private static final QueryRunner runner = new QueryRunner();
+    static val BD;
 
-       public static Connection getConnection() throws SQLException {
-        String dbUrl = System.getProperty("db.url");
+    public static Connection getConnection() throws SQLException {
+        String url   = "jdbc:mysql://localhost:3306/app";
+       // String dbUrl = System.getProperty("db.url");
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        final Connection connection = DriverManager.getConnection(dbUrl, login, password);
+        final Connection connection = DriverManager.getConnection(url, login, password);
         return connection;
     }
 

@@ -101,12 +101,12 @@ public class DataHelper {
     }
 
     public static CardInfo getInvalidCardOwnerNameIfNumericAndSpecialCharacters() {
-        return new CardInfo("4444 4444 4444 4441",  monthEndOfAction, yearEndOfAction,
+        return new CardInfo("5578334444444441",  monthEndOfAction, yearEndOfAction,
                 "67893!№", codeCvc);
     }
 
     public static CardInfo getInvalidCardOwnerNameIfRussianLetters() {
-        return new CardInfo("4444 4444 4444 4441",  monthEndOfAction, yearEndOfAction,
+        return new CardInfo("5578334444444441",  monthEndOfAction, yearEndOfAction,
                 "Иван Иванов", codeCvc);
     }
 
@@ -126,7 +126,7 @@ public class DataHelper {
     }
 
     public static CardInfo getInvalidCvvIfThreeZero() {
-        return new CardInfo("4444 4444 4444 4441", monthEndOfAction, yearEndOfAction,
+        return new CardInfo("5578334444444441", monthEndOfAction, yearEndOfAction,
                nameHolder, "000");
     }
 

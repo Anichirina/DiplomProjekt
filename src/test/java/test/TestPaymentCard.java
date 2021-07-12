@@ -135,7 +135,7 @@ public class TestPaymentCard {
             val incorrectCardInfo = DataHelper.getInvalidNumberOfMonthIfZero();
             val paymentPage = new TripPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.declined();
+            paymentPage.approved();
         }
     }
 
@@ -200,9 +200,6 @@ public class TestPaymentCard {
             val incorrectCardInfo = DataHelper.getInvalidCardOwnerNameIfNumericAndSpecialCharacters();
             val paymentPage = new TripPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.declined();
-            final SelenideElement declinedNotification = $(".notification_status_error");
-            declinedNotification.click();
             paymentPage.approved();
         }
 
@@ -211,9 +208,6 @@ public class TestPaymentCard {
             val incorrectCardInfo = DataHelper.getInvalidCardOwnerNameIfRussianLetters();
             val paymentPage = new TripPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.declined();
-            final SelenideElement declinedNotification = $(".notification_status_error");
-            declinedNotification.click();
             paymentPage.approved();
         }
     }
@@ -255,7 +249,8 @@ public class TestPaymentCard {
             paymentPage.approved();
         }
     }
-//Проверяем неверные подписи строчек после правильного заполнения
+
+    //Проверяем неверные подписи строчек после правильного заполнения
     @Test
     public void shouldInvalidCardDataIfEmptyAllFieldsAndAfterFullInformationCard() {
         val incorrectCardInfo = DataHelper.getInvalidCardDataIfEmptyAllFields();
