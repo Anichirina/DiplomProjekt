@@ -15,14 +15,12 @@ public class BdHelper {
     static val BD;
 
     public static Connection getConnection() throws SQLException {
-        String url   = "jdbc:mysql://localhost:3306/app";
-       // String dbUrl = System.getProperty("db.url");
+        String dbUrl = System.getProperty("db.url");
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        final Connection connection = DriverManager.getConnection(url, login, password);
+        final Connection connection = DriverManager.getConnection(dbUrl, login, password);
         return connection;
     }
-
 
 
     @SneakyThrows
