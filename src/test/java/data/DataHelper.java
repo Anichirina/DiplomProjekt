@@ -126,7 +126,7 @@ public class DataHelper {
     }
 
     public static CardInfo getInvalidCvvIfThreeZero() {
-        return new CardInfo("5578334444444441", monthEndOfAction, yearEndOfAction,
+        return new CardInfo("4444 4444 4444 4441", monthEndOfAction, yearEndOfAction,
                nameHolder, "000");
     }
 

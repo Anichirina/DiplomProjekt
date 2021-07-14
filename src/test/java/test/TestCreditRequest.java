@@ -53,7 +53,7 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardInformation);
-            creditPage.approved();
+            creditPage.declined();
             assertEquals("DECLINED", new BdHelper().getCreditRequestStatus());
             assertNull(new BdHelper().getCreditId());
         }
@@ -151,7 +151,7 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardNumber);
-            creditPage.approved();
+            creditPage.declined();
         }
     }
 
@@ -230,10 +230,7 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardNumber);
-            creditPage.declined();
-            final SelenideElement declinedNotification = $(".notification_status_error");
-            declinedNotification.click();
-            creditPage.approved();
+            creditPage.shouldValueFieldHolder();
         }
 
         @Test
@@ -243,10 +240,7 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardNumber);
-            creditPage.declined();
-            final SelenideElement declinedNotification = $(".notification_status_error");
-            declinedNotification.click();
-            creditPage.approved();
+            creditPage.shouldValueFieldHolder();
         }
 
     }
@@ -290,12 +284,10 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardNumber);
-            creditPage.declined();
-            final SelenideElement declinedNotification = $(".notification_status_error");
-            declinedNotification.click();
-            creditPage.approved();
+            creditPage.shouldValueFieldCodCVC();
         }
     }
+
     //Проверяем неверные подписи строчек после правильного заполнения
     @Test
     public void shouldInvalidCardDataIfEmptyAllFieldsAndAfterFullInformationCard() {

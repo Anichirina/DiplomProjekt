@@ -8,11 +8,11 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+
 
 public class BdHelper {
     private static final QueryRunner runner = new QueryRunner();
-    static val BD;
+
 
     public static Connection getConnection() throws SQLException {
         String dbUrl = System.getProperty("db.url");
