@@ -102,12 +102,12 @@ public class DataHelper {
 
     public static CardInfo getInvalidCardOwnerNameIfNumericAndSpecialCharacters() {
         return new CardInfo("5578334444444441",  monthEndOfAction, yearEndOfAction,
-                "67893!№", codeCvc);
+                "47853!$", codeCvc);
     }
 
     public static CardInfo getInvalidCardOwnerNameIfRussianLetters() {
         return new CardInfo("5578334444444441",  monthEndOfAction, yearEndOfAction,
-                "Иван Иванов", codeCvc);
+                "Иван Петров", codeCvc);
     }
 
     public static CardInfo getInvalidCvcIfEmpty() {
