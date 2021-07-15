@@ -43,10 +43,10 @@ public class TestPaymentCard {
             val validCardInformation = DataHelper.getValidCardInformation();
             val paymentPage = new TripPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(validCardInformation);
+            paymentPage.approved();
             assertEquals("APPROVED", new BdHelper().getPaymentStatus());
             assertEquals(4500000, new BdHelper().getPaymentAmount());
             assertNull(new BdHelper().getCreditId());
-            paymentPage.approved();
 
         }
 
@@ -55,9 +55,10 @@ public class TestPaymentCard {
             val invalidCardInformation = DataHelper.getInvalidCardInformation();
             val paymentPage = new TripPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(invalidCardInformation);
+            paymentPage.approved();
             assertEquals("DECLINED", new BdHelper().getPaymentStatus());
             assertNull(new BdHelper().getCreditId());
-            paymentPage.declined();
+
         }
     }
 

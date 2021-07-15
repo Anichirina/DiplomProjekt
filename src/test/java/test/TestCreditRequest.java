@@ -53,9 +53,9 @@ public class TestCreditRequest {
             paymentPage.selectBuyByCreditCard();
             val creditPage = new CreditPage();
             creditPage.creditCardFullInformation(invalidCardInformation);
-            creditPage.declined();
             assertEquals("DECLINED", new BdHelper().getCreditRequestStatus());
             assertNull(new BdHelper().getCreditId());
+            creditPage.declined();
         }
     }
 
