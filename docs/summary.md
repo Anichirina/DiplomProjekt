@@ -21,8 +21,12 @@
 позитивных тест-кейсов = 10%
 негативных тест-кейсов = 90%
 Это отчет по ALLURE
-[отчет Allure](http://192.168.0.107:52026/index.html)
-Это отчет по Gragle
+![2021-07-15_12-38-39](https://user-images.githubusercontent.com/72977774/125768628-ae1d5a63-b2d4-4ced-a4ba-6e4c8fbfba5a.png)
+
+- [отчет Allure](http://192.168.0.107:52026/index.html)
+- Это отчет по Gragle
+![2021-07-15_12-30-41](https://user-images.githubusercontent.com/72977774/125768696-fd2d8758-c4d8-4431-8303-3ca676045b52.png)
+![2021-07-15_12-30-25](https://user-images.githubusercontent.com/72977774/125768699-0b14f729-6a1e-4439-821d-ca77a43f3aff.png)
 
 
 ### Во время проведения автоматизации тестирования сработали следующие риски:
